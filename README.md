@@ -26,25 +26,27 @@ A job-based web crawler built with .NET 8, React, RabbitMQ, and PostgreSQL. User
 
 ### Prerequisites
 
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) (v24+)
-- [Node.js](https://nodejs.org/) (v20+) — for the frontend dev server
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) (v24+) — that's it
 
-### 1. Start the backend stack
+### 1. Start the full stack
 
 ```bash
 docker compose up --build
 ```
 
-This starts four services:
+This starts five services:
 
 | Container | Port | Description |
 |---|---|---|
 | `crawl_postgres` | 5433 | PostgreSQL database |
 | `crawl_rabbitmq` | 5672 / 15672 | RabbitMQ (AMQP / Management UI) |
 | `crawl_api` | 5000 | Crawl API (REST) |
-| `crawl_worker` | 8081 | Crawl Worker (health endpoint only) |
+| `crawl_worker` | — | Crawl Worker |
+| `crawl_frontend` | 5173 | React UI (nginx) |
 
 The API auto-applies EF Core migrations on startup — no manual database setup needed.
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 To run multiple worker replicas:
 ```bash
@@ -55,15 +57,15 @@ RabbitMQ Management UI: [http://localhost:15672](http://localhost:15672) (guest 
 
 Swagger UI: [http://localhost:5000/swagger](http://localhost:5000/swagger)
 
-### 2. Start the frontend
+### 2. (Optional) Run the frontend in dev mode
+
+If you have [Node.js](https://nodejs.org/) (v20+) installed and want hot-reload during development:
 
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
-
-Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ### 3. Run the tests
 
@@ -345,8 +347,8 @@ Indexes
 3. **Crawl API (job creation + status endpoints)** — The UI and worker both depend on this. Getting the REST surface working early enabled end-to-end testing quickly.
 4. **BFS crawler in the Worker** — The most algorithmically interesting piece: URL normalisation, HTML parsing, deduplication, depth limiting, concurrent batch fetching, and Domain Link Ratio calculation.
 5. **Docker Compose** — Set up early so the full stack could be tested realistically rather than against mocked dependencies.
-6. **Idempotency constraints** — Unique indexes on `Pages(JobId, Url)` and `Edges(JobId, ParentUrl, ChildUrl)` combined with `ON CONFLICT DO NOTHING` batch inserts.
-7. **React frontend** — Built against the already-working API, with loading/error states, progress indicator, tree view, and pagination.
+6. **React frontend** — Built against the already-working API, with loading/error states, progress indicator, tree view, and pagination.
+7. **Idempotency constraints** — Unique indexes on `Pages(JobId, Url)` and `Edges(JobId, ParentUrl, ChildUrl)` combined with `ON CONFLICT DO NOTHING` batch inserts.
 8. **Cancel endpoint + worker-side cancellation** — Cancel writes `Canceled` directly to the DB; the worker polls status before each BFS batch and aborts if it sees `Canceled`.
 9. **Hierarchical tree API endpoint** — `GET /api/jobs/{id}/tree` builds the tree server-side from the Edges table, returning only crawled pages (nodes with Domain Link Ratios).
 10. **CI pipeline** — GitHub Actions workflow: backend build + test, frontend type-check + build, Docker Compose image build.
