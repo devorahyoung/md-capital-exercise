@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "y1Euc5T1qKbrHBI1QcKSfVKRm/GOaA7KUx/UEYV/TOg=",
+  "Source": "Crawl.Worker",
+  "BasePath": "_content/Crawl.Worker",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

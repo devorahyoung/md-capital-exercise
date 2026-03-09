@@ -1,0 +1,12 @@
+/Users/devorahyoung/Devorah/md-capital-exercise/backend/Crawl.Core/bin/Debug/net8.0/Crawl.Core.deps.json
+/Users/devorahyoung/Devorah/md-capital-exercise/backend/Crawl.Core/bin/Debug/net8.0/Crawl.Core.dll
+/Users/devorahyoung/Devorah/md-capital-exercise/backend/Crawl.Core/bin/Debug/net8.0/Crawl.Core.pdb
+/Users/devorahyoung/Devorah/md-capital-exercise/backend/Crawl.Core/obj/Debug/net8.0/Crawl.Core.csproj.AssemblyReference.cache
+/Users/devorahyoung/Devorah/md-capital-exercise/backend/Crawl.Core/obj/Debug/net8.0/Crawl.Core.GeneratedMSBuildEditorConfig.editorconfig
+/Users/devorahyoung/Devorah/md-capital-exercise/backend/Crawl.Core/obj/Debug/net8.0/Crawl.Core.AssemblyInfoInputs.cache
+/Users/devorahyoung/Devorah/md-capital-exercise/backend/Crawl.Core/obj/Debug/net8.0/Crawl.Core.AssemblyInfo.cs
+/Users/devorahyoung/Devorah/md-capital-exercise/backend/Crawl.Core/obj/Debug/net8.0/Crawl.Core.csproj.CoreCompileInputs.cache
+/Users/devorahyoung/Devorah/md-capital-exercise/backend/Crawl.Core/obj/Debug/net8.0/Crawl.Core.dll
+/Users/devorahyoung/Devorah/md-capital-exercise/backend/Crawl.Core/obj/Debug/net8.0/refint/Crawl.Core.dll
+/Users/devorahyoung/Devorah/md-capital-exercise/backend/Crawl.Core/obj/Debug/net8.0/Crawl.Core.pdb
+/Users/devorahyoung/Devorah/md-capital-exercise/backend/Crawl.Core/obj/Debug/net8.0/ref/Crawl.Core.dll

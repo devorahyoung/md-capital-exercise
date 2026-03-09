@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "4qG6OLBDvsbZzliiQ2mOcA5vHu2RYJyRn73eTpknFf4=",
+  "Source": "Crawl.Api",
+  "BasePath": "_content/Crawl.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
